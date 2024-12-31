@@ -1,4 +1,6 @@
-export const dataA = [
+import { TreeItem } from '@/database/Personal';
+
+export const dataA: TreeItem[] = [
   {
     key: 'a',
     label: 'aaaa',
@@ -49,7 +51,7 @@ export const dataA = [
   },
 ];
 
-export const dataB = [
+export const dataB: TreeItem[] = [
   {
     key: 'movie',
     label: '电影',
