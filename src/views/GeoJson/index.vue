@@ -21,10 +21,13 @@ import {
   Entity,
   CustomDataSource,
   SceneMode,
+  Ion,
 } from 'cesium';
 import { CityPosition } from './data';
+import { cesium_token } from 'token';
 
 onMounted(async () => {
+  Ion.defaultAccessToken = cesium_token;
   const viewer = new Viewer('cesiumContainer', {
     // sceneMode: SceneMode.SCENE2D,
   });
