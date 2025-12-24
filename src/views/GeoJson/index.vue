@@ -24,7 +24,7 @@ import {
   Ion,
 } from 'cesium';
 import { CityPosition } from './data';
-import { cesium_token } from 'token';
+import { cesium_token } from '@/token';
 
 onMounted(async () => {
   Ion.defaultAccessToken = cesium_token;
@@ -33,16 +33,16 @@ onMounted(async () => {
   });
 
   const provinceDataSource = await GeoJsonDataSource.load('/province.geojson', {
-    fill: Color.ALICEBLUE,
+    fill: Color.YELLOW,
     stroke: Color.RED,
   });
 
-  viewer.dataSources.add(provinceDataSource);
+  await viewer.dataSources.add(provinceDataSource);
 
-  const globaDataSource = await GeoJsonDataSource.load('/globa.geojson', {
-    stroke: Color.fromCssColorString('#bfd3e4'),
-  });
-  viewer.dataSources.add(globaDataSource);
+  // const globaDataSource = await GeoJsonDataSource.load('/globa.geojson', {
+  //   stroke: Color.fromCssColorString('#bfd3e4'),
+  // });
+  // viewer.dataSources.add(globaDataSource);
 
   const labelDataSource = new CustomDataSource('label-data-source');
 

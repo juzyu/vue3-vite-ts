@@ -2,6 +2,7 @@ import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
 import GeoJson from '@/views/GeoJson/index.vue';
 import indexedDB from '@/views/IndexedDB/index.vue';
 import czmlVue from '@/views/Czml/index.vue';
+import Sensor from '@/views/Sensor/index.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -25,6 +26,20 @@ const routes: RouteRecordRaw[] = [
     path: '/czml',
     name: 'Czml',
     component: czmlVue,
+  },
+
+  // ts 接口和抽象类
+  // {
+  //   path: '/interface',
+  //   name: 'Interface',
+  //   component:
+  // },
+
+  // turf.js 叠加合并雷达范围
+  {
+    path: '/sensor',
+    name: 'Sensor',
+    component: Sensor,
   },
 ];
 

@@ -19,6 +19,6 @@
       ]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "token.ts"],
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue", "src/token.tsn.ts"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -9,7 +9,7 @@ import { onMounted } from 'vue';
 import * as Cesium from 'cesium';
 import { Viewer, CzmlDataSource } from 'cesium';
 import { satellite_czml } from './satellite';
-import { cesium_token } from 'token';
+import { cesium_token } from '@/token';
 
 onMounted(async () => {
   Cesium.Ion.defaultAccessToken = cesium_token;
