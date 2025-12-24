@@ -3,6 +3,7 @@ import GeoJson from '@/views/GeoJson/index.vue';
 import indexedDB from '@/views/IndexedDB/index.vue';
 import czmlVue from '@/views/Czml/index.vue';
 import Sensor from '@/views/Sensor/index.vue';
+import Octahedron from '@/views/Octahedron/index.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -40,6 +41,12 @@ const routes: RouteRecordRaw[] = [
     path: '/sensor',
     name: 'Sensor',
     component: Sensor,
+  },
+  // cesium 8面体
+  {
+    path: '/octahedron',
+    name: 'Octahedron',
+    component: Octahedron,
   },
 ];
 
