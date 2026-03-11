@@ -65,17 +65,9 @@ const createOctahedron = () => {
 
   // 创建几何体
   const octahedronGeometry = new Geometry({
+    // @ts-ignore
     attributes: {
       position: new GeometryAttribute({
-        componentDatatype: ComponentDatatype.DOUBLE,
-        componentsPerAttribute: 3,
-        values: geometry.vertices,
-      }),
-      normal: undefined,
-      st: undefined,
-      bitangent: undefined,
-      tangent: undefined,
-      color: new GeometryAttribute({
         componentDatatype: ComponentDatatype.DOUBLE,
         componentsPerAttribute: 3,
         values: geometry.vertices,
@@ -111,27 +103,15 @@ const createOctahedron = () => {
   const primitive = new Primitive({
     geometryInstances: instance,
     appearance: new PerInstanceColorAppearance({
-      flat: false,
+      // flat: false,
       translucent: true,
-      closed: true,
+      // closed: true,
     }),
     asynchronous: false,
   });
 
   // 添加到场景
   ViewerRef.value.scene.primitives.add(primitive);
-
-  // 同时创建一个entity用于动画控制
-  octahedronEntity.value = ViewerRef.value.entities.add({
-    position: Cartesian3.fromDegrees(116.3974, 39.9093, 1000),
-    orientation: Transforms.headingPitchRollQuaternion(
-      Cartesian3.fromDegrees(116.3974, 39.9093, 1000),
-      new HeadingPitchRoll(0, 0, 0)
-    ),
-    model: {
-      // 这里我们不使用model，而是用primitive，但保留entity用于位置和方向控制
-    },
-  });
 
   // 设置相机视角
   ViewerRef.value.camera.setView({
@@ -202,6 +182,7 @@ const createOctahedronNew = () => {
 
     // 创建三角形几何体
     const triangleGeometry = new Geometry({
+      // @ts-ignore
       attributes: {
         position: new GeometryAttribute({
           componentDatatype: ComponentDatatype.DOUBLE,
@@ -218,11 +199,11 @@ const createOctahedronNew = () => {
             v3.z,
           ]),
         }),
-        normal: undefined,
-        st: undefined,
-        bitangent: undefined,
-        tangent: undefined,
-        color: undefined,
+        // normal: undefined,
+        // st: undefined,
+        // bitangent: undefined,
+        // tangent: undefined,
+        // color: undefined,
       },
       indices: new Uint16Array([0, 1, 2]),
       primitiveType: PrimitiveType.TRIANGLES,
@@ -260,11 +241,11 @@ const createOctahedronNew = () => {
   });
 
   // 创建边线primitive
-  octahedronEdgePrimitive.value = createOctahedronEdges(data, modelMatrix);
+  // octahedronEdgePrimitive.value = createOctahedronEdges(data, modelMatrix);
 
   // 添加到场景
   ViewerRef.value.scene.primitives.add(octahedronPrimitive.value);
-  ViewerRef.value.scene.primitives.add(octahedronEdgePrimitive.value);
+  // ViewerRef.value.scene.primitives.add(octahedronEdgePrimitive.value);
 
   // 设置相机视角
   ViewerRef.value.camera.setView({
@@ -313,17 +294,18 @@ const createOctahedronEdges = (
 
   // 创建线条几何体
   const edgeGeometry = new Geometry({
+    // @ts-ignore
     attributes: {
       position: new GeometryAttribute({
         componentDatatype: ComponentDatatype.DOUBLE,
         componentsPerAttribute: 3,
         values: new Float64Array(edgePositions),
       }),
-      normal: undefined,
-      st: undefined,
-      bitangent: undefined,
-      tangent: undefined,
-      color: undefined
+      // normal: undefined,
+      // st: undefined,
+      // bitangent: undefined,
+      // tangent: undefined,
+      // color: undefined
     },
     indices: new Uint16Array(
       Array.from({ length: edgePositions.length / 3 }, (_, i) => i)
@@ -337,13 +319,13 @@ const createOctahedronEdges = (
   // 创建边线实例
   const edgeInstance = new GeometryInstance({
     geometry: edgeGeometry,
-    modelMatrix: modelMatrix,
+    modelMatrix: modelMatrix.clone(),
     attributes: {
       color: ColorGeometryInstanceAttribute.fromColor(
         Color.WHITE
       ),
     },
-    id: 'octahedron_edges',
+    id: 'octahedron_edges', 
   });
 
   // 创建边线primitive

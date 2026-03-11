@@ -4,11 +4,13 @@ import indexedDB from '@/views/IndexedDB/index.vue';
 import czmlVue from '@/views/Czml/index.vue';
 import Sensor from '@/views/Sensor/index.vue';
 import Octahedron from '@/views/Octahedron/index.vue';
+import Cylinder from '@/views/Cylinder/index.vue';
 
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     redirect: '/geojson',
+    // redirect: '/octahedron',
   },
   {
     // 全球&中国行政区划
@@ -47,6 +49,11 @@ const routes: RouteRecordRaw[] = [
     path: '/octahedron',
     name: 'Octahedron',
     component: Octahedron,
+  },
+  {
+    path: '/cylinder',
+    name: 'Cylinder',
+    component: Cylinder,
   },
 ];
 
