@@ -5,6 +5,7 @@ import czmlVue from '@/views/Czml/index.vue';
 import Sensor from '@/views/Sensor/index.vue';
 import Octahedron from '@/views/Octahedron/index.vue';
 import Cylinder from '@/views/Cylinder/index.vue';
+import Sector from '@/views/Sector/index.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -50,10 +51,17 @@ const routes: RouteRecordRaw[] = [
     name: 'Octahedron',
     component: Octahedron,
   },
+  // 圆柱体
   {
     path: '/cylinder',
     name: 'Cylinder',
     component: Cylinder,
+  },
+  // 扇形
+  {
+    path: '/sector',
+    name: 'Sector',
+    component: Sector,
   },
 ];
 
